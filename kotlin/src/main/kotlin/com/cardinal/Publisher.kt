@@ -111,7 +111,7 @@ suspend fun main() {
 		)
 		patientSdk.contact.createContact(contactWithEncryptionMetadata)
 
-		print("Create another sample? [y/N] ")
+		print("Sample created, you want to create another? [y/N] ")
 		createAnother = readln().trim().lowercase() == "y"
 
 	} while (createAnother)

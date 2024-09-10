@@ -21,13 +21,8 @@ suspend fun main() {
 			)
 		)
 
-//	val filter = ServiceFilters.byTagAndValueDateForSelf(
-//		tagType = "CARDINAL",
-//		tagCode = "TO_BE_ANALYZED"
-//	)
-
 	val subscription = sdk.contact.subscribeToServiceCreateOrUpdateEvents(
-		filter = filter,
+		filter = filter
 	)
 
 	for (event in subscription.eventChannel) {
