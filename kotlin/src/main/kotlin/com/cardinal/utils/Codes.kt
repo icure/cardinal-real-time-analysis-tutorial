@@ -3,7 +3,7 @@ package com.cardinal.utils
 import com.icure.cardinal.sdk.CardinalSdk
 import com.icure.cardinal.sdk.model.Code
 
-suspend fun initializeCodes(sdk: CardinalSdk) {
+suspend fun initCodes(sdk: CardinalSdk) {
 	val codes = sdk.code.getCodes(listOf("SNOMED|302866003|1", "SNOMED|80394007|1", "SNOMED|260395002|1"))
 	if (codes.isEmpty()) {
 		sdk.code.createCodes(

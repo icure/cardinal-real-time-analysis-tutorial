@@ -1,6 +1,6 @@
 package com.cardinal
 
-import com.cardinal.utils.initializeCodes
+import com.cardinal.utils.initCodes
 import com.cardinal.utils.login
 import com.icure.cardinal.sdk.filters.ServiceFilters
 import com.icure.cardinal.sdk.model.base.CodeStub
@@ -8,7 +8,7 @@ import com.icure.cardinal.sdk.subscription.EntitySubscriptionEvent
 
 suspend fun main() {
 	val sdk = login()
-	initializeCodes(sdk)
+	initCodes(sdk)
 
 	val filter = ServiceFilters.byTagAndValueDateForSelf(
 			tagType = "LOINC",
