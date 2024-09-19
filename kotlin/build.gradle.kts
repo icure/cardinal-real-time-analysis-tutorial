@@ -12,7 +12,7 @@ repositories {
 }
 
 dependencies {
-    implementation(group = "com.icure", name = "cardinal-sdk", version = "2.0.50.alpha1")
+    implementation(group = "com.icure", name = "cardinal-sdk")
     implementation(group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version = "1.7.3")
     testImplementation(kotlin("test"))
 }
