@@ -3,6 +3,7 @@ package com.cardinal
 import com.cardinal.utils.createSdk
 import com.cardinal.utils.login
 import com.icure.cardinal.sdk.crypto.entities.PatientShareOptions
+import com.icure.cardinal.sdk.crypto.entities.SecretIdShareOptions
 import com.icure.cardinal.sdk.crypto.entities.ShareMetadataBehaviour
 import com.icure.cardinal.sdk.filters.ServiceFilters
 import com.icure.cardinal.sdk.model.DecryptedContact
@@ -41,22 +42,15 @@ suspend fun main() {
 
 	createSdk(login, loginToken)
 
-	val patientSecretIds = sdk.patient.getSecretIdsOf(createdPatient)
-	val patientShareResult = sdk.patient.shareWith(
+	val patient = sdk.patient.shareWith(
 		delegateId = createdPatient.id,
 		patient = createdPatient,
 		options = PatientShareOptions(
-			shareSecretIds = patientSecretIds,
+			shareSecretIds = SecretIdShareOptions.AllAvailable(true),
 			shareEncryptionKey = ShareMetadataBehaviour.IfAvailable,
 			requestedPermissions = RequestedPermission.MaxWrite
 		)
 	)
-
-	if (patientShareResult.isSuccess) {
-		println("Successfully shared patient")
-	}
-
-	val patient = patientShareResult.updatedEntityOrThrow()
 
 	val patientSdk = createSdk(login, loginToken)
 	
