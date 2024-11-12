@@ -2,8 +2,8 @@ import random
 import uuid
 from cardinal_sdk.filters import ServiceFilters
 from cardinal_sdk.model import DecryptedPatient, User, PatientShareOptions, ShareMetadataBehaviour, \
-	RequestedPermission, SimpleShareResultDecryptedPatientSuccess, DecryptedContact, DecryptedService, \
-	DecryptedContent, Measure, CodeStub, AccessLevel
+	RequestedPermission, DecryptedContact, DecryptedService, DecryptedContent, Measure, CodeStub, AccessLevel, \
+	SecretIdShareOptionsAllAvailable
 from datetime import datetime
 from utils.create_sdk import create_sdk
 from utils.login import do_login
@@ -31,21 +31,15 @@ def publisher():
 
 	create_sdk(login, login_token)
 
-	patient_secret_ids = sdk.patient.get_secret_ids_of_blocking(created_patient)
-	patient_share_result = sdk.patient.share_with_blocking(
+	patient = sdk.patient.share_with_blocking(
 		delegate_id=created_patient.id,
 		patient=created_patient,
 		options=PatientShareOptions(
-			share_secret_ids=patient_secret_ids,
+			share_secret_ids=SecretIdShareOptionsAllAvailable(True),
 			share_encryption_key=ShareMetadataBehaviour.IfAvailable,
 			requested_permissions=RequestedPermission.MaxWrite
 		)
 	)
-
-	if isinstance(patient_share_result, SimpleShareResultDecryptedPatientSuccess):
-		print("Successfully shared patient")
-
-	patient = patient_share_result.updated_entity
 
 	patient_sdk = create_sdk(login, login_token)
 
