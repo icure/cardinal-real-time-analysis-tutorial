@@ -16,7 +16,7 @@ created, the Subscriber assigns a tag to it.
 The tutorial code is available in Kotlin, Python, and TypeScript. Below you will find instructions for running the code
 in all three languages. For further explanations and examples, check the [Cardinal documentation](https://docs.icure.com/).
 
-## Executing the Tutorial in Kotlin
+## Running the Tutorial in Kotlin
 
 To run the tutorial in Kotlin, clone this repository:
 
@@ -28,7 +28,7 @@ Then, open the folder in IntelliJ.
 Run the [Subscriber](https://github.com/icure/cardinal-real-time-analysis-tutorial/blob/main/kotlin/src/main/kotlin/com/cardinal/Subscriber.kt),
 and then the [Publisher](https://github.com/icure/cardinal-real-time-analysis-tutorial/blob/main/kotlin/src/main/kotlin/com/cardinal/Publisher.kt).
 
-## Executing the Tutorial in Python
+## Running the Tutorial in Python
 
 To run the tutorial in Python, clone this repository:
 
@@ -38,7 +38,7 @@ cd cardinal-real-time-analysis-tutorial
 ```
 
 It is recommended to use a virtual environment, to avoid conflicting dependencies. The minimum supported Python version is
-3.9.
+3.12.
 
 ```bash
 cd python
@@ -49,7 +49,7 @@ source venv/bin/activate
 Then, install the Cardinal SDK from PyPI.
 
 ```bash
-pip install cardinal-sdk
+pip install cardinal-sdk==2.0.0rc13
 ```
 
 Run the Subscriber.
@@ -65,7 +65,7 @@ source venv/bin/activate
 python src/publisher.py
 ```
 
-## Executing the Tutorial in Typescript
+## Running the Tutorial in Typescript
 
 To run the tutorial in Typescript, clone this repository:
 
