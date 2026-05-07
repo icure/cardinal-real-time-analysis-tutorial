@@ -49,7 +49,7 @@ source venv/bin/activate
 Then, install the Cardinal SDK from PyPI.
 
 ```bash
-pip install cardinal-sdk==2.0.0rc13
+pip install cardinal-sdk
 ```
 
 Run the Subscriber.
